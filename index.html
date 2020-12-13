@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+
+        <ul v-show="showBooks">
+            <li v-for="book in books" :class="{fav: book.isFav }" @dblclick="toggleFavorite(book)">
+                <img :src="book.src" :alt="book.title">
+                <h3>{{book.title}} - {{book.author}} - {{book.genre}}</h3>
+                <button @click="toggleFavorite(book)" class="fav-btn">
+                    <span v-if="!book.isFav">Favorite</span>
+                    <span v-else>Un-Favorite</span>
+                </button>
+            </li>
+        </ul>
+
+        <button class="fav-btn" @click="toggleShowBooks">
+            <span v-if="showBooks">Hide</span>
+            <span v-else>Show</span>
+        </button>
+
+    </div>
+
+
+
+
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
